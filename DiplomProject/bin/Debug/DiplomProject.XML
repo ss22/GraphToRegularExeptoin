@@ -1,0 +1,405 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DiplomProject</name>
+    </assembly>
+    <members>
+        <member name="T:DiplomProject.CreateGraph">
+            <summary>
+            Form for creating new <c>DiplomProject.Graph</c> object.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.CreateGraph.#ctor">
+            <summary>
+            Initialize <c>DiplomProject.CreateGraph</c> object.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.CreateGraph.ReturnGraph">
+            <summary>
+            Return created <c>DiplomProject.Graph</c> object.
+            </summary>
+            <returns><c>DiplomProject.Graph</c> object.</returns>
+        </member>
+        <member name="F:DiplomProject.CreateGraph.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.CreateGraph.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DiplomProject.CreateGraph.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DiplomProject.Edge">
+            <summary>
+             The <c>DiplomProject.Edge</c> describes the edge structure.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Edge.initialVertex">
+            <summary>
+            The variable that stores the number of vertex from which the current edge.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Edge.finalVertex">
+            <summary>
+            The variable that stores the number of vertex which falls the current edge.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Edge.regularExpression">
+            <summary>
+            The variable that stores the string of regular expression.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Edge.#ctor">
+            <summary>
+            Initializes a new empty <c>DiplomProject.Edge</c> object.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Edge.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new <c>DiplomProject.Edge</c> object with parametrs
+            where a regular expression is generated based on the index number of edge.
+            </summary>
+            <param name="startVertex">Start vertex of the edge.</param>
+            <param name="finishVertex">Finish vertex of the edge.</param>
+            <param name="numberEdgeVertex">Index number of the edge.</param>
+        </member>
+        <member name="M:DiplomProject.Edge.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            Initializes a new <c>DiplomProject.Edge</c> object with parametrs
+            where a regular expression is defined. 
+            </summary>
+            <param name="startVertex">Start vertex of the edge.</param>
+            <param name="finishVertex">Finish vertex of the edge.</param>
+            <param name="regularExpressionString">String of regular expression which is transfer parameter.</param>
+        </member>
+        <member name="M:DiplomProject.Edge.System#IComparable{DiplomProject#Edge}#CompareTo(DiplomProject.Edge)">
+            <summary>
+            Interface implementation <c>IComparable</c> with the <c>DiplomProject.Edge</c> parameter.
+            </summary>
+            <param name="other">The compared class object <c>DiplomProject.Edge</c>.</param>
+            <returns>
+            Less than zero if the parameter <c>InitialVertex</c> of the current odject less then
+            the same parameter of the object specified by the <c>CompareTo</c> method or parameters
+            <c>InitialVertex</c> of the compared objects are equivalent and parameter <c>FinalVertex</c>
+            of the current object less then same parameter of compared object;
+            Zero if this object is equal to the method parameter;
+            Greater than zero if the parameter <c>InitialVertex</c> of the current odject Greater then
+            the same parameter of the object specified by the <c>CompareTo</c> method or parameters
+            <c>InitialVertex</c> of the compared objects are equivalent and parameter <c>FinalVertex</c>
+            of the current object Greater then same parameter of compared object;
+            </returns>
+        </member>
+        <member name="M:DiplomProject.Edge.ToString">
+            <summary>
+            Override method implementation ToString for <c>DiplomProject.Edge</c>.
+            </summary>
+            <returns>String which describes the current <c>DiplomProject.Edge</c> object.</returns>
+        </member>
+        <member name="M:DiplomProject.Edge.IsLoop">
+            <summary>
+            Defines if the current edge is a loop.
+            </summary>
+            <returns>True if the current edge is loop; otherwise, false.</returns>
+        </member>
+        <member name="M:DiplomProject.Edge.IntegrateLoopToEdge(DiplomProject.Edge)">
+            <summary>
+            Integrates loop whith current edge.
+            </summary>
+            <param name="loop">Object of <c>DiplomProject.Edge</c> which is loop.</param>
+        </member>
+        <member name="M:DiplomProject.Edge.IsParallelEdge(DiplomProject.Edge)">
+            <summary>
+            Defines if the current edge is parallel whith other edge.
+            </summary>
+            <param name="otherEdge">Object of <c>DiplomProject.Edge</c>.</param>
+            <returns>True if the current edge is parallel with <c>otherEdge</c>; otherwise, false.</returns>
+        </member>
+        <member name="M:DiplomProject.Edge.CombineWithParallelEdge(DiplomProject.Edge)">
+            <summary>
+            Combine the edges which are parallel. The regular expression of current edge =
+            <c>(RegularExpression)v(otherEdge.RegularExpression)</c>.
+            </summary>
+            <param name="otherEdge"><c>DiplomProject.Edge</c> object that combines the current edge.</param>
+        </member>
+        <member name="M:DiplomProject.Edge.IsRelateToVertex(DiplomProject.Vertex)">
+            <summary>
+            Defines if the current edge is relate to the specified <c>DiplomProject.Vertex</c> object.
+            </summary>
+            <param name="vertex"><c>DiplomProject.Vertex</c> object that is checked on relates with edge.</param>
+            <returns>True if the current edge is relates whith <c>vertex</c>; otherwise, false.</returns>
+        </member>
+        <member name="P:DiplomProject.Edge.InitialVertex">
+            <summary>
+            Gets name of vertex from which the current edge.
+            </summary>
+            <value>Vertex number.</value>
+            <remarks>InitialVertex determines the beginning of the edge.</remarks>
+        </member>
+        <member name="P:DiplomProject.Edge.FinalVertex">
+            <summary>
+            Gets name of vertex which falls the current edge.
+            </summary>
+            <value>Vertex number.</value>
+            <remarks>FinalVertex determines the finaly vertex of the edge.</remarks>
+        </member>
+        <member name="P:DiplomProject.Edge.RegularExpression">
+            <summary>
+            Gets the transfer parameter (Regular expression) of current edge.
+            </summary>
+            <value>String of regular expression.</value>
+            <remarks>RegularExpression determines the string of regular expression.</remarks>
+        </member>
+        <member name="T:DiplomProject.MainForm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DiplomProject.MainForm.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DiplomProject.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DiplomProject.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DiplomProject.Graph">
+            <summary>
+            The <c>Graph</c> describes the structure of the graph.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Graph.vertices">
+            <summary>
+            List of vertices in current <c>DiplomProject.Graph</c>.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Graph.edges">
+            <summary>
+            List of edges in current <c>DiplomProject.Graph</c>.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Graph.firstVertex">
+            <summary>
+            Start vertex in current <c>DiplomProject.Graph</c>.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Graph.lastVertex">
+            <summary>
+            Finish vertex in current <c>DiplomProject.Graph</c>.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Graph.SetFirstAndLastVertices(System.Int32,System.Int32)">
+            <summary>
+            Set first and last vertex in current <c>DiplomProject.Graph</c>.
+            </summary>
+            <param name="first">Number of first vertex for current
+            <c>DiplomProject.Graph</c> object.</param>
+            <param name="last">Number of last vertex for current
+            <c>DiplomProject.Graph</c> object.</param>
+            <returns>True if set first and last vertex was success; otherwise, false.</returns>
+        </member>
+        <member name="M:DiplomProject.Graph.#ctor">
+            <summary>
+            Initializes a new empty <c>DiplomProject.Graph</c> object.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Graph.#ctor(System.Collections.Generic.List{DiplomProject.Vertex},System.Int32,System.Int32,System.Collections.Generic.List{DiplomProject.Edge})">
+            <summary>
+            Initializes a new <c>DiplomProject.Graph</c> object which based on the collections
+            of vertices and edges.
+            </summary>
+            <param name="verticesList">Collection of vertices.</param>
+            <param name="firstVertexName">Name of first vertex in current
+            <c>DiplomProject.Graph</c> object.</param>
+            <param name="lastVertexName">Name of last vertex in current
+            <c>DiplomProject.Graph</c> object.</param>
+            <param name="edgesList">Collection of edges.</param>
+        </member>
+        <member name="M:DiplomProject.Graph.#ctor(DiplomProject.Graph)">
+            <summary>
+            Initializes a new <c>DiplomProject.Graph</c> object which based on the other <c>DiplomProject.Graph</c> object.
+            </summary>
+            <param name="otherGraph"><c>DiplomProject.Graph</c> object.</param>
+        </member>
+        <member name="M:DiplomProject.Graph.RidOfLoops">
+            <summary>
+            Find, delete and integrate to edges, which contact with vertices where was
+            find the loops, all loops in current graph.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Graph.RidOfParallelEdges">
+            <summary>
+            Find in current graph all parallel edges, and on their base creates one new edge. 
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Graph.DeleteVertex(DiplomProject.Vertex)">
+            <summary>
+            Remove from graph vertex and redistributes the eges.
+            </summary>
+            <param name="vertex">Removable vertex.</param>
+        </member>
+        <member name="M:DiplomProject.Graph.SortVertices">
+            <summary>
+            Sort list of vertices in current <c>DiplomProject.Graph</c> by descending.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Graph.SortEdges">
+            <summary>
+            Sort list of edges in current <c>DiplomProject.Graph</c> by descending.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Graph.GetGraphRegularExpression">
+            <summary>
+            Get string wich is the regular egpression of corrent graph.
+            </summary>
+        </member>
+        <member name="P:DiplomProject.Graph.Vertices">
+            <summary>
+            Gets all vertices in current <c>DiplomProject.Graph</c>.
+            </summary>
+            <return>List of vertices in current graph.</return>
+        </member>
+        <member name="P:DiplomProject.Graph.Edges">
+            <summary>
+            Gets all edges in current <c>DiplomProject.Graph</c>.
+            </summary>
+            <return>List of edges in current graph.</return>
+        </member>
+        <member name="P:DiplomProject.Graph.FirstVertex">
+            <summary>
+            Gets start vertex in current <c>DiplomProject.Graph</c>.
+            </summary>
+            <return>Object of class <c>DiplomProject.Vertex</c>.</return>
+        </member>
+        <member name="P:DiplomProject.Graph.LastVertex">
+            <summary>
+            Gets finish vertex in current <c>DiplomProject.Graph</c>.
+            </summary>
+            <return>Object of class <c>DiplomProject.Vertex</c>.</return>
+        </member>
+        <member name="M:DiplomProject.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:DiplomProject.Vertex">
+            <summary>
+            The <c>DiplomProject.Vertex</c> describes the vertex structure.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Vertex.name">
+            <summary>
+            The variable that stores the name of current vertex.
+            </summary>
+        </member>
+        <member name="F:DiplomProject.Vertex.edgesNumber">
+            <summary>
+            The variable that stores the number of edges for current vertex.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Vertex.System#IComparable{DiplomProject#Vertex}#CompareTo(DiplomProject.Vertex)">
+            <summary>
+            Interface implementation <c>IComparable</c> with the <c>DiplomProject.Vertex</c> parameter.
+            </summary>
+            <param name="other">The compared class object <c>DiplomProject.Vertex</c>.</param>
+            <returns>
+            Less than zero if this object is less than the object specified by the <c>CompareTo</c> method;
+            Zero if this object is equal to the method parameter;
+            Greater than zero if this object is greater than the method parameter.
+            </returns>
+        </member>
+        <member name="M:DiplomProject.Vertex.ToString">
+            <summary>
+            Override method implementation ToString for <c>DiplomProject.Vertex</c>.
+            </summary>
+            <returns>String which describes the current <c>DiplomProject.Vertex</c> object.</returns>
+        </member>
+        <member name="M:DiplomProject.Vertex.#ctor">
+            <summary>
+            Initializes a new empty <c>DiplomProject.Vertex</c> object.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Vertex.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new <c>DiplomProject.Vertex</c> object with parametrs.
+            </summary>
+            <param name="name">Vertex name.</param>
+            <param name="edgeNumber">Sum of incoming and outgoing edges.</param>
+        </member>
+        <member name="M:DiplomProject.Vertex.IncreaseNumberOfEdges">
+            <summary>
+            Increase number of edges for current vertex on 1.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Vertex.IncreaseNumberOfEdges(System.Int32)">
+            <summary>
+            Increase number of edges for current vertex on value.
+            </summary>
+            <param name="value">The number to which you want increase
+            number of edges for current vertex.</param>
+        </member>
+        <member name="M:DiplomProject.Vertex.DecreaseNumberOfEdges">
+            <summary>
+            Decrease number of edges for current vertex on 1.
+            </summary>
+        </member>
+        <member name="M:DiplomProject.Vertex.DecreaseNumberOfEdges(System.Int32)">
+            <summary>
+            Decrease number of edges for current vertex on value.
+            </summary>
+            <param name="value">The number to which you want decrease
+            number of edges for current vertex.</param>
+        </member>
+        <member name="P:DiplomProject.Vertex.Name">
+            <summary>
+            Get the name of current vertex.
+            </summary>
+            <value>Vertex name.</value>
+            <remarks>Name determines the vertex.</remarks>
+        </member>
+        <member name="P:DiplomProject.Vertex.EdgesNumber">
+            <summary>
+            Get the number of edges for current vertex.
+            </summary>
+            <value>Vertex number.</value>
+            <remarks><c>EdgeNumber</c> determines the number of edges of this vertex.</remarks>
+        </member>
+        <member name="T:DiplomProject.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DiplomProject.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DiplomProject.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

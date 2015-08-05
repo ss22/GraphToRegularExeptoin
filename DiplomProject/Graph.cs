@@ -268,26 +268,44 @@ namespace DiplomProject
 
             vertices.Remove(vertex);
 
-            // Create string of new regular expression and add new edges to list.
-            foreach (Edge outEdge in outEdges)
+            if (outEdges.Count > 0)
             {
-                foreach(Edge inEdge in inEdges)
+                // Create string of new regular expression and add new edges to list.
+                foreach (Edge outEdge in outEdges)
                 {
-                    string newRegular = "(" + inEdge.RegularExpression + "*|" + vertex.Name + "|*"
-                                            + outEdge.RegularExpression + ")";
-                    Edge newEdge = new Edge(inEdge.InitialVertex, outEdge.FinalVertex, newRegular);
-                    
-                    edges.Add(newEdge); 
-                }
+                    foreach (Edge inEdge in inEdges)
+                    {
+                        string newRegular = "(" + inEdge.RegularExpression + "*/" + vertex.Name + "/*"
+                                                + outEdge.RegularExpression + ")";
+                        Edge newEdge = new Edge(inEdge.InitialVertex, outEdge.FinalVertex, newRegular);
 
-                if (firstVertex.Name == outEdge.FinalVertex)
-                    firstVertex.IncreaseNumberOfEdges(inEdges.Count - 1);
-                if (lastVertex.Name == outEdge.FinalVertex)
-                    lastVertex.IncreaseNumberOfEdges(inEdges.Count - 1);
-                foreach (Vertex v in vertices)
+                        edges.Add(newEdge);
+                    }
+
+                    if (firstVertex.Name == outEdge.FinalVertex)
+                        firstVertex.IncreaseNumberOfEdges(inEdges.Count - 1);
+                    if (lastVertex.Name == outEdge.FinalVertex)
+                        lastVertex.IncreaseNumberOfEdges(inEdges.Count - 1);
+                    foreach (Vertex v in vertices)
+                    {
+                        if (v.Name == outEdge.FinalVertex)
+                            v.IncreaseNumberOfEdges(inEdges.Count - 1);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Edge inEdge in inEdges)
                 {
-                    if (v.Name == outEdge.FinalVertex)
-                        v.IncreaseNumberOfEdges(inEdges.Count - 1);
+                    if (firstVertex.Name == inEdge.InitialVertex)
+                        firstVertex.DecreaseNumberOfEdges();
+                    if (lastVertex.Name == inEdge.InitialVertex)
+                        lastVertex.DecreaseNumberOfEdges();
+                    foreach (Vertex v in vertices)
+                    {
+                        if (v.Name == inEdge.InitialVertex)
+                            v.DecreaseNumberOfEdges();
+                    }
                 }
             }
 
@@ -308,18 +326,7 @@ namespace DiplomProject
         {
             edges.Sort();
         }
-
-        private bool IsFinalVertexReachable()
-        {
-            if (lastVertex.EdgesNumber > 0 && firstVertex.EdgesNumber > 0)
-            {
-                List<Vertex> tmpVertices = vertices;
-                //TODO
-                return true;
-            }
-            else return false;
-        }
-
+        
         /// <summary>
         /// Get string wich is the regular egpression of corrent graph.
         /// </summary>

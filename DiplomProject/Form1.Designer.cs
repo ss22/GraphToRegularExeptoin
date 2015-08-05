@@ -140,6 +140,7 @@
             this.tbVertices.Location = new System.Drawing.Point(15, 40);
             this.tbVertices.Multiline = true;
             this.tbVertices.Name = "tbVertices";
+            this.tbVertices.ReadOnly = true;
             this.tbVertices.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbVertices.Size = new System.Drawing.Size(148, 161);
             this.tbVertices.TabIndex = 3;
@@ -149,6 +150,7 @@
             this.tbEdges.Location = new System.Drawing.Point(169, 40);
             this.tbEdges.Multiline = true;
             this.tbEdges.Name = "tbEdges";
+            this.tbEdges.ReadOnly = true;
             this.tbEdges.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbEdges.Size = new System.Drawing.Size(203, 161);
             this.tbEdges.TabIndex = 5;

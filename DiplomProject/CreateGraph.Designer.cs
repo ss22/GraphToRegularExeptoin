@@ -193,7 +193,7 @@
             // btnCreateGraph
             // 
             this.btnCreateGraph.Enabled = false;
-            this.btnCreateGraph.Location = new System.Drawing.Point(388, 67);
+            this.btnCreateGraph.Location = new System.Drawing.Point(339, 67);
             this.btnCreateGraph.Name = "btnCreateGraph";
             this.btnCreateGraph.Size = new System.Drawing.Size(149, 23);
             this.btnCreateGraph.TabIndex = 12;
@@ -204,7 +204,7 @@
             // numFinishGraphVertex
             // 
             this.numFinishGraphVertex.Enabled = false;
-            this.numFinishGraphVertex.Location = new System.Drawing.Point(487, 41);
+            this.numFinishGraphVertex.Location = new System.Drawing.Point(438, 41);
             this.numFinishGraphVertex.Name = "numFinishGraphVertex";
             this.numFinishGraphVertex.Size = new System.Drawing.Size(50, 20);
             this.numFinishGraphVertex.TabIndex = 13;
@@ -212,7 +212,7 @@
             // numStartGraphVertex
             // 
             this.numStartGraphVertex.Enabled = false;
-            this.numStartGraphVertex.Location = new System.Drawing.Point(487, 12);
+            this.numStartGraphVertex.Location = new System.Drawing.Point(438, 12);
             this.numStartGraphVertex.Name = "numStartGraphVertex";
             this.numStartGraphVertex.Size = new System.Drawing.Size(50, 20);
             this.numStartGraphVertex.TabIndex = 14;
@@ -220,7 +220,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(390, 14);
+            this.label5.Location = new System.Drawing.Point(341, 14);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 13);
             this.label5.TabIndex = 15;
@@ -229,7 +229,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(385, 43);
+            this.label6.Location = new System.Drawing.Point(336, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 13);
             this.label6.TabIndex = 16;
@@ -239,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 262);
+            this.ClientSize = new System.Drawing.Size(502, 262);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numStartGraphVertex);

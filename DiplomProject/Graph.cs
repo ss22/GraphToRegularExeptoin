@@ -332,16 +332,16 @@ namespace DiplomProject
         /// </summary>
         public void GetGraphRegularExpression()
         {
-            RidOfLoops();
             RidOfParallelEdges();
+            RidOfLoops();
             SortEdges();
             SortVertices();
             while (vertices.Count > 0)
             {
                 DeleteVertex(vertices[0]);
                 SortEdges();
-                RidOfLoops();
                 RidOfParallelEdges();
+                RidOfLoops();
                 SortVertices();
             }
             if(edges.Count == 2)

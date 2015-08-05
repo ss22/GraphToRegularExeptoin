@@ -26,8 +26,8 @@ namespace DiplomProject
         [XmlElement("InitialVertex")]
         public int InitialVertex
         {
-            get { return initialVertex; }
-            set { finalVertex = value; }
+            get;
+            set;
         }
 
         /// <summary>
@@ -43,8 +43,8 @@ namespace DiplomProject
         [XmlElement("FinalVertex")]
         public int FinalVertex
         {
-            get { return finalVertex; }
-            set { finalVertex = value; }
+            get;
+            set;
         }
 
         /// <summary>
@@ -60,8 +60,8 @@ namespace DiplomProject
         [XmlElement("regularExpression")]
         public string RegularExpression
         {
-            get { return regularExpression; }
-            set { regularExpression = value; } 
+            get;
+            set;
         }
 
         /// <summary>

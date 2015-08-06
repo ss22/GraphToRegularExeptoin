@@ -399,6 +399,9 @@ namespace DiplomProject
             }
         }
 
+        /// <summary>
+        /// Do step oeration.
+        /// </summary>
         public void Step()
         {
             RidOfParallelEdges();

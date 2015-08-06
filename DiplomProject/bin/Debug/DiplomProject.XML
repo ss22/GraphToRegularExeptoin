@@ -274,6 +274,11 @@
             Get string wich is the regular egpression of corrent graph.
             </summary>
         </member>
+        <member name="M:DiplomProject.Graph.Step">
+            <summary>
+            Do step oeration.
+            </summary>
+        </member>
         <member name="P:DiplomProject.Graph.Vertices">
             <summary>
             Gets all vertices in current <c>DiplomProject.Graph</c>.

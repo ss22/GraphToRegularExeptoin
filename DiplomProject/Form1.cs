@@ -166,5 +166,11 @@ namespace DiplomProject
                     ShowGraph();
             }
         }
+
+        private void btnStep_Click(object sender, EventArgs e)
+        {
+            graph.Step();
+            ShowGraph();
+        }
     }
 }

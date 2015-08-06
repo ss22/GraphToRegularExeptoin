@@ -45,6 +45,7 @@
             this.btnGetRerular = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.btnStep = new System.Windows.Forms.Button();
             this.MainFormMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,7 +167,7 @@
             // 
             // btnGetRerular
             // 
-            this.btnGetRerular.Location = new System.Drawing.Point(395, 67);
+            this.btnGetRerular.Location = new System.Drawing.Point(395, 99);
             this.btnGetRerular.Name = "btnGetRerular";
             this.btnGetRerular.Size = new System.Drawing.Size(75, 23);
             this.btnGetRerular.TabIndex = 7;
@@ -182,11 +183,22 @@
             // 
             this.saveFileDialog.Filter = "Graph|*.gph";
             // 
+            // btnStep
+            // 
+            this.btnStep.Location = new System.Drawing.Point(395, 67);
+            this.btnStep.Name = "btnStep";
+            this.btnStep.Size = new System.Drawing.Size(75, 23);
+            this.btnStep.TabIndex = 8;
+            this.btnStep.Text = "Step";
+            this.btnStep.UseVisualStyleBackColor = true;
+            this.btnStep.Click += new System.EventHandler(this.btnStep_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 262);
+            this.Controls.Add(this.btnStep);
             this.Controls.Add(this.btnGetRerular);
             this.Controls.Add(this.tbEdges);
             this.Controls.Add(this.label2);
@@ -223,6 +235,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button btnStep;
     }
 }
 

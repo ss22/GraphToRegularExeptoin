@@ -261,6 +261,17 @@ namespace DiplomProject
                     {
                         inEdges.Add(edges[i]);
                     }
+
+                    if (edges[i].IsRelateToVertex(firstVertex))
+                        firstVertex.DecreaseNumberOfEdges();
+                    if (edges[i].IsRelateToVertex(lastVertex))
+                        lastVertex.DecreaseNumberOfEdges();
+                    foreach(Vertex v in vertices)
+                    {
+                        if (edges[i].IsRelateToVertex(v))
+                            v.DecreaseNumberOfEdges();
+                    }
+
                     edges.RemoveAt(i);
                 }
                 else i++;
@@ -268,9 +279,11 @@ namespace DiplomProject
 
             vertices.Remove(vertex);
 
-            if (outEdges.Count > 0)
+            if (outEdges.Count > 0 && inEdges.Count > 0)
             {
                 // Create string of new regular expression and add new edges to list.
+                List<Edge> newEdges = new List<Edge>();
+
                 foreach (Edge outEdge in outEdges)
                 {
                     foreach (Edge inEdge in inEdges)
@@ -279,17 +292,27 @@ namespace DiplomProject
                                                 + outEdge.RegularExpression + ")";
                         Edge newEdge = new Edge(inEdge.InitialVertex, outEdge.FinalVertex, newRegular);
 
+                        newEdges.Add(newEdge);
                         edges.Add(newEdge);
                     }
+                }
 
-                    if (firstVertex.Name == outEdge.FinalVertex)
-                        firstVertex.IncreaseNumberOfEdges(inEdges.Count - 1);
-                    if (lastVertex.Name == outEdge.FinalVertex)
-                        lastVertex.IncreaseNumberOfEdges(inEdges.Count - 1);
-                    foreach (Vertex v in vertices)
+                foreach(Edge ne in newEdges)
+                {
+                    if (ne.InitialVertex == firstVertex.Name)
+                        firstVertex.IncreaseNumberOfEdges();
+                    if (ne.InitialVertex == lastVertex.Name)
+                        lastVertex.IncreaseNumberOfEdges();
+                    if (ne.FinalVertex == firstVertex.Name)
+                        firstVertex.IncreaseNumberOfEdges();
+                    if (ne.FinalVertex == lastVertex.Name)
+                        lastVertex.IncreaseNumberOfEdges();
+                    foreach(Vertex v in vertices)
                     {
-                        if (v.Name == outEdge.FinalVertex)
-                            v.IncreaseNumberOfEdges(inEdges.Count - 1);
+                        if (ne.InitialVertex == v.Name)
+                            v.IncreaseNumberOfEdges();
+                        if (ne.FinalVertex == v.Name)
+                            v.IncreaseNumberOfEdges();
                     }
                 }
             }
@@ -304,6 +327,19 @@ namespace DiplomProject
                     foreach (Vertex v in vertices)
                     {
                         if (v.Name == inEdge.InitialVertex)
+                            v.DecreaseNumberOfEdges();
+                    }
+                }
+
+                foreach (Edge outEdge in outEdges)
+                {
+                    if (firstVertex.Name == outEdge.FinalVertex)
+                        firstVertex.DecreaseNumberOfEdges();
+                    if (lastVertex.Name == outEdge.FinalVertex)
+                        lastVertex.DecreaseNumberOfEdges();
+                    foreach (Vertex v in vertices)
+                    {
+                        if (v.Name == outEdge.FinalVertex)
                             v.DecreaseNumberOfEdges();
                     }
                 }
@@ -361,6 +397,20 @@ namespace DiplomProject
                     edges.Add(newEdge);
                 }
             }
+        }
+
+        public void Step()
+        {
+            RidOfParallelEdges();
+            RidOfLoops();
+            SortEdges();
+            SortVertices();
+            DeleteVertex(vertices[0]);
+            SortEdges();
+            RidOfParallelEdges();
+            RidOfLoops();
+            SortEdges();
+            SortVertices();
         }
     }
 }

@@ -166,6 +166,8 @@ namespace DiplomProject
         /// <returns>True if the current edge is parallel with <c>otherEdge</c>; otherwise, false.</returns>
         public bool IsParallelEdge(Edge otherEdge)
         {
+            if (otherEdge == null) return false;
+
             if (initialVertex == otherEdge.InitialVertex && finalVertex == otherEdge.FinalVertex)
                 return true;
             else

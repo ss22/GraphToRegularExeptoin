@@ -16,7 +16,6 @@ namespace DiplomProject
         /// List of vertices in current <c>DiplomProject.Graph</c>.
         /// </summary>
         List<Vertex> vertices;
-
         
         /// <summary>
         /// Gets all vertices in current <c>DiplomProject.Graph</c>.
@@ -344,7 +343,6 @@ namespace DiplomProject
                     }
                 }
             }
-
         }
 
         /// <summary>
